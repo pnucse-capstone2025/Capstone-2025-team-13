@@ -169,4 +169,7 @@ NEXT_PUBLIC_API_URL=
 cd frontend
 npm install
 npm run dev:all
+
+# PostgreSQL & 모니터링 서비스 실행
+docker-compose up -d postgres prometheus grafana
 ```
