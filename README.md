@@ -72,9 +72,9 @@
 
 ## 4. 소개 및 시연 영상
 
-> 데모 영상 준비 중 - 곧 업로드 예정입니다!
+[![Video Label](http://img.youtube.com/vi/KugrTo0gUVo/0.jpg)](https://youtu.be/KugrTo0gUVo)
+> 위 이미지를 클릭하면 유튜브 영상이 재생됩니다.
 > 
-
 ### ✨ 주요 특징
 
 ### 1) 요구사항 맞춤형 집계자 배치 최적화
