@@ -480,7 +480,7 @@ npm run dev:all
 |            Profile            |            느낀점            |
 |:-----------------------------:|-----------------------------|
 | <p align="center"><img src="https://github.com/Jeon-Jinhyeok.png?size=100" width="80"/><br/><strong>전진혁</strong></p> | _시스템 아키텍처를 설계하고 연합학습을 수행하며 분산 시스템과 클라우드 인프라에 대한 지식을 실제 프로젝트에 적용할 수 있는  </br>소중한 경험이었습니다._ |
-| <p align="center"><img src="https://github.com/kim-minkyoung.png?size=100" width="80"/><br/><strong>김민경</strong></p> | |
+| <p align="center"><img src="https://github.com/kim-minkyoung.png?size=100" width="80"/><br/><strong>김민경</strong></p> | _인프라를 자동화하고 실시간 모니터링 시스템을 구축하는 과정에서, 안정적인 시스템을 만드는 일의 가치를 체감했습니다._ |
 | <p align="center"><img src="https://github.com/JAEIL1999.png?size=100" width="80"/><br/><strong>박재일</strong></p> | _클라우드 기술의 이해를 높이고, 백엔드와 프론트엔드 개발부터 MLOps까지 전반적인 개발 과정을 경험하게 해준 의미 있는   </br>프로젝트였습니다. 이를 통해 개발 역량을 한 단계 성장시킬 수 있었습니다._ |
 
 
