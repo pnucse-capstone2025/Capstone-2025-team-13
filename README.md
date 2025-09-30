@@ -34,7 +34,7 @@
 </p>
 
 > 기존 클라우드 기반 연합학습의 경우, **단일 클라우드 플랫폼**에 한정되어 연합학습을 수행한다.  </br>이로인해 **리전별 비용 정책 차이와 네트워크 지연(latency)** 을 고려하지 못한다.
-학습 참여자가 물리적으로 멀리 떨어져 있는 경우, 모델 파라미터 전송에 지연이 발생하여 **학습 속도가 저하**된다. 또한 비용이 높은 리전에 집계자가 배포되면 **클라우드 비용이 불필요하게 증가**한다.
+학습 참여자가 물리적으로 멀리 떨어져 있는 경우, 모델 파라미터  <br>전송에 지연이 발생하여 **학습 속도가 저하**된다. 또한 비용이 높은 리전에 집계자가 배포되면 **클라우드 비용이 불필요하게 증가**한다.
 
 #### (2) 보안 취약성 및 데이터 프라이버시 문제
 <p align="center">
@@ -201,7 +201,7 @@ FedML 등 기존 프레임워크는 실시간 자원 모니터링 기반의 동�
   - 검증 성공 시 해당 플랫폼과 연동 
 - **효과**: 여러 클라우드 플랫폼을 **단일 인터페이스**에서 관리 가능하며, 멀티 클라우드 서비스를 활용할 수 있다.
   
-#### 2) Aggregator Deployment Optimizer
+#### 3) Aggregator Deployment Optimizer
 <p align="center">
   <img width="50%" alt="집계자 배치 최적화 아키텍처" src="https://github.com/user-attachments/assets/73b6a64b-8bd7-443e-934a-787dec8c1657" />
 </p>
@@ -212,7 +212,7 @@ FedML 등 기존 프레임워크는 실시간 자원 모니터링 기반의 동�
 - **결과 예시**
 <img width="40%" alt="배치 최적화 결과" src="https://github.com/user-attachments/assets/820e949e-e0ad-44e8-8a21-0214996f3254" />
 
-#### 3) Dynamic Task Orchestrator
+#### 4) Dynamic Task Orchestrator
 <p align="center">
   <img width="70%" alt="동적 태스크 오케스트레이션 플로우" src="https://github.com/user-attachments/assets/7efddea0-3555-47b2-af32-d507d26c95a6" />
 </p>
@@ -224,7 +224,7 @@ FedML 등 기존 프레임워크는 실시간 자원 모니터링 기반의 동�
 - **결과 예시** 
 <img width="40%" alt="동적 태스크 오케스트레이션 결과" src="https://github.com/user-attachments/assets/3bb2d189-c447-446f-a6b8-cec63be2fe09" />
 
-#### 4) Federated Learning Initializer
+#### 5) Federated Learning Initializer
 <p align="center">
   <img width="60%" alt="그림2" src="https://github.com/user-attachments/assets/efae453d-b781-4e6a-bf85-e903f95fa5d7" />
 </p>
@@ -237,23 +237,23 @@ FedML 등 기존 프레임워크는 실시간 자원 모니터링 기반의 동�
 <img width="40%" alt="image" src="https://github.com/user-attachments/assets/2ea1d1da-e5dc-4b9a-9161-895e7a6db26f" />
 
 
-#### 5) Model Manager
+#### 6) Model Manager
 - **역할**: MLflow를 통한 연합학습 모델 관리 및 모니터링
   - 모델 성능 추적(각 학습 라운드마다 생성되는 글로벌 모델 성능 추적)
   - 사용자 요구사항에 따른 최적의 모델 추천 및 다운로드 기능 제공
 - **효과**: 사용자는 **성능 추적 + 자동 추천 + 다운로드**를 통해 최적의 모델을 손쉽게 확보 가능
 - **모델 모니터링 및 다운로드 예시**
-- <img width="40%" alt="image" src="https://github.com/user-attachments/assets/2baeccba-f078-4996-b037-4d7109f75da8" />
+<img width="40%" alt="image" src="https://github.com/user-attachments/assets/2baeccba-f078-4996-b037-4d7109f75da8" />
 
 
 ### 4.3. 사례 연구: COVID-19 진단 모델 구축
-- **데이터셋**: Kaggle Covid-19 Image Dataset (정상 환자, COVID-19 확진 환자, 폐렴 환자 폐 X-ray 이미지)
+- **데이터셋**: [Kaggle Covid-19 Image Dataset](https://www.kaggle.com/datasets/pranavraikokte/covid19-image-dataset/data) 
 - **시나리오**: 글로벌 의료기관 협력 (유럽, 아시아, 미국 리전에 분산 배치)
 - **결과**: 데이터 프라이버시 완전 보장하면서 효율적인 글로벌 모델 학습 달성
 
 ### 실험 결과
 
-### 1) 비용 및 성능 최적화 평가
+#### 1) 비용 및 성능 최적화 평가
 
 <img width="50%" alt="image" src="https://github.com/user-attachments/assets/d06a1a47-9524-4840-af36-3d1a89fc7399" />
 
@@ -263,9 +263,8 @@ FedML 등 기존 프레임워크는 실시간 자원 모니터링 기반의 동�
 | **비용 우선 최적화** | 53초 | 23,026원 | **최적화 전에 비해 비용 클라우드 비용 41% 절감** |
 | **지연시간 우선 최적화** | 48.4초 | 31,450원 | **최적화 전에 비해 학습시간 7% 감소, 클라우드 비용 19% 절감** |
 
-### 2) 동적 태스크 오케스트레이션 평가
-<img width="50%" alt="image" src="https://github.com/user-attachments/assets/37f03813-75ae-4e5f-a077-ac928cfa1732" />
-
+#### 2) 동적 태스크 오케스트레이션 평가
+<img width="50%" alt="image" src="https://github.com/user-attachments/assets/a8dc592d-1bea-4ab3-b773-c63567b09f5e" />
 
 | 방식 | 참여자 이탈률 | 연합학습 성공률 | 비고 |
 | --- | --- | --- | --- |
@@ -473,11 +472,14 @@ npm run dev:all
 
 | Profile | Role                                | Email | GitHub |
 |:------:|:------------------------------------|:------|:--------|
-| <p align="center"><img src="https://github.com/Jeon-Jinhyeok.png?size=100" width="80"/><br/><strong>전진혁</strong></p> | Team Leader / Federated Learning & System Architect | aqwstn@gmail.com | [@Jeon-Jinhyeok](https://github.com/Jeon-Jinhyeok) |
+| <p align="center"><img src="https://github.com/Jeon-Jinhyeok.png?size=100" width="80"/><br/><strong>전진혁</strong></p> | Team Leader /  </br>Federated Learning & System Architect | aqwstn@gmail.com | [@Jeon-Jinhyeok](https://github.com/Jeon-Jinhyeok) |
 | <p align="center"><img src="https://github.com/kim-minkyoung.png?size=100" width="80"/><br/><strong>김민경</strong></p> | Backend Developer, CloudOps | decomin02@naver.com | [@Kim-Minkyoung](https://github.com/kim-minkyoung) |
 | <p align="center"><img src="https://github.com/JAEIL1999.png?size=100" width="80"/><br/><strong>박재일</strong></p> | Backend Developer, MLOps | pkyj040410@gmail.com | [@JAEIL1999](https://github.com/JAEIL1999) |
 
 ### 7.2. 팀원 별 느낀점
+| [전진혁](https://github.com/Jeon-Jinhyeok) | 김민경 | 박재일 |
+|---|---|---|
+| _시스템 아키텍처를 설계하고 팀 리더 역할을 맡으며,  </br>분산 시스템과 클라우드 인프라에 대한 지식을  </br>실제 프로젝트에 적용할 수 있는 소중한 경험이었습니다._  |  |     |  
 
 ---
 
