@@ -477,9 +477,12 @@ npm run dev:all
 | <p align="center"><img src="https://github.com/JAEIL1999.png?size=100" width="80"/><br/><strong>박재일</strong></p> | Backend Developer, MLOps | pkyj040410@gmail.com | [@JAEIL1999](https://github.com/JAEIL1999) |
 
 ### 7.2. 팀원 별 느낀점
-| [전진혁](https://github.com/Jeon-Jinhyeok) | [김민경](https://github.com/kim-minkyoung) | [박재일](https://github.com/JAEIL1999) |
-|---|---|---|
-| _시스템 아키텍처를 설계하고 팀 리더 역할을 맡으며,  </br>분산 시스템과 클라우드 인프라에 대한 지식을  </br>실제 프로젝트에 적용할 수 있는 소중한 경험이었습니다._  |  |     |  
+| Profile | 느낀점                               |
+|:------:|:------------------------------------|
+| <p align="center"><img src="https://github.com/Jeon-Jinhyeok.png?size=100" width="80"/><br/><strong>전진혁</strong></p> | _시스템 아키텍처를 설계하고 연합학습을 수행하며 분산 시스템과 클라우드 인프라에 대한 지식을 실제 프로젝트에 적용할 수 있는  </br>소중한 경험이었습니다._ |
+| <p align="center"><img src="https://github.com/kim-minkyoung.png?size=100" width="80"/><br/><strong>김민경</strong></p> | |
+| <p align="center"><img src="https://github.com/JAEIL1999.png?size=100" width="80"/><br/><strong>박재일</strong></p> | |
+
 
 ---
 
