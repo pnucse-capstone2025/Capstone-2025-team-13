@@ -252,6 +252,151 @@ FedML 등 기존 프레임워크는 실시간 자원 모니터링 기반의 동�
 | **제안 알고리즘** | 0% | **100%** |
 
 ### 4.4 디렉터리 구조
+```
+.
+├── Participant-Setting
+├── README.md
+├── asset
+│   ├── cloud_price_AWS.csv
+│   ├── cloud_price_GCP.csv
+│   └── latency_results.csv
+├── backend
+│   ├── Dockerfile
+│   ├── config
+│   │   └── database.go
+│   ├── env.example
+│   ├── go.mod
+│   ├── go.sum
+│   ├── handlers
+│   │   ├── aggregator
+│   │   ├── auth
+│   │   ├── clouds.go
+│   │   ├── federated_learning_handler.go
+│   │   ├── participant_handler.go
+│   │   ├── ssh_keypair_handler.go
+│   │   ├── templates
+│   │   └── virtual_machine_handler.go
+│   ├── initialization
+│   │   └── app_init.go
+│   ├── main.go
+│   ├── middlewares
+│   │   └── auth_middleware.go
+│   ├── models
+│   │   ├── aggregator.go
+│   │   ├── cloud_connection.go
+│   │   ├── cloud_latency.go
+│   │   ├── cloud_price.go
+│   │   ├── federated_learning.go
+│   │   ├── participant.go
+│   │   ├── participant_federated_learning.go
+│   │   ├── provider.go
+│   │   ├── refresh_token.go
+│   │   ├── region.go
+│   │   ├── ssh_keypair.go
+│   │   └── user.go
+│   ├── repository
+│   │   ├── aggregator_repository.go
+│   │   ├── cloud_latency.go
+│   │   ├── cloud_price.go
+│   │   ├── cloud_repository.go
+│   │   ├── federated_learning_repository.go
+│   │   ├── participant_repository.go
+│   │   ├── provider_repository.go
+│   │   ├── refresh_token_repository.go
+│   │   ├── region_repository.go
+│   │   ├── ssh_keypair_repository.go
+│   │   └── user_repository.go
+│   ├── routes
+│   │   ├── aggregator_routes.go
+│   │   ├── auth_routes.go
+│   │   ├── cloud_routes.go
+│   │   ├── federated_learning_routes.go
+│   │   ├── participant_routes.go
+│   │   ├── ssh_keypair_routes.go
+│   │   └── virtual_machine_routes.go
+│   ├── scripts
+│   │   ├── aggregator_optimization.py
+│   │   ├── requirements.txt
+│   │   └── run_optimizer.sh
+│   ├── services
+│   │   ├── aggregator
+│   │   ├── cloud_keypair_service.go
+│   │   ├── data_initialization.go
+│   │   ├── optimization.go
+│   │   ├── prometheus_service.go
+│   │   ├── ssh_keypair_service.go
+│   │   ├── virtual_machine_selection.go
+│   │   ├── virtual_machine_service.go
+│   │   └── vm_types.go
+│   ├── utils
+│   │   ├── encryption.go
+│   │   ├── jwt.go
+│   │   ├── ssh_client.go
+│   │   ├── ssh_keygen.go
+│   │   ├── startup_script.go
+│   │   └── terraform.go
+│   └── validators
+│       └── aggregator
+├── docker-compose.yml
+├── flower-demo
+│   ├── flower_demo
+│   │   ├── client_app.py
+│   │   ├── server_app.py
+│   │   └── task.py
+│   └── pyproject.toml
+├── frontend
+│   ├── Dockerfile
+│   ├── components.json
+│   ├── eslint.config.mjs
+│   ├── next.config.ts
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── postcss.config.mjs
+│   ├── public
+│   │   └── fleecy.ico
+│   ├── src
+│   │   ├── api
+│   │   ├── app
+│   │   ├── components
+│   │   ├── contexts
+│   │   ├── hooks
+│   │   ├── lib
+│   │   ├── middleware.ts
+│   │   └── types
+│   └── tsconfig.json
+├── simulator
+│   ├── Dockerfile
+│   ├── aggregators
+│   │   ├── __init__.py
+│   │   ├── fedadagrad.py
+│   │   ├── fedadam.py
+│   │   ├── fedavg.py
+│   │   ├── fedprox.py
+│   │   └── fedyogi.py
+│   ├── client.py
+│   ├── docker-compose.yml
+│   ├── model.py
+│   ├── requirements.txt
+│   └── server.py
+├── structure.txt
+└── terraform
+    ├── aws
+    │   ├── locals.tf
+    │   ├── main.tf
+    │   ├── outputs.tf
+    │   ├── providers.tf
+    │   ├── terraform.tfvars
+    │   └── variables.tf
+    ├── common
+    │   └── scripts
+    └── gcp
+        ├── deploy.sh
+        ├── main.tf
+        ├── outputs.tf
+        ├── providers.tf
+        ├── terraform.tfvars
+        └── variables.tf
+```
 
 ---
 
