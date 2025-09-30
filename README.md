@@ -140,7 +140,9 @@
 ## 4. 개발 결과
 
 ### 4.1. 전체 시스템 흐름도
-<img width="50%" alt="image" src="https://github.com/user-attachments/assets/d165ae7e-2c41-4939-94a7-02c361da233d" />
+<p align="center">
+  <img width="90%" alt="image" src="https://github.com/user-attachments/assets/d165ae7e-2c41-4939-94a7-02c361da233d" />
+</p>
 </br>
 
 ### 4.2. 기능 설명
@@ -162,12 +164,24 @@
   - **연합학습 참여자 VM**: 로컬 모델 학습 수행  
   - **특징**: 완전한 데이터 격리 보장  
 
-> 요약: **프라이빗 클라우드**는 학습 데이터와 로컬 학습을 담당하고, **퍼블릭 클라우드**는 파라미터 집계 및 글로벌 모델 관리에 집중한다.  
+> **프라이빗 클라우드**는 학습 데이터와 로컬 학습을 담당하고, **퍼블릭 클라우드**는 파라미터 집계 및 글로벌 모델 관리에 집중한다.  
 이를 통해 데이터는 프라이빗 클라우드 내부에 안전하게 유지되면서도, 퍼블릭 클라우드의 확장성과 접근성을 활용할 수 있다.
 
-#### 2) 요구사항 맞춤형 집계자 배치 최적화
+#### 2) Cloud Authenticator
 <p align="center">
-  <img width="40%" alt="집계자 배치 최적화 아키텍처" src="https://github.com/user-attachments/assets/73b6a64b-8bd7-443e-934a-787dec8c1657" />
+  <img width="50%" height="893" alt="Cloud Authenticator 아키텍처" src="https://github.com/user-attachments/assets/4033841e-5ddb-4ac2-9517-0078ab210303" />
+</p>
+
+- **문제점**: 멀티 클라우드 환경에서는 AWS, Azure, GCP, OpenStack 등 각기 다른 클라우드 플랫폼별 인증 체계가 달라, 통합된 방식으로 연동·관리하기 어렵다.  
+- **방법**: Cloud Authenticator를 통해 클라우드 자격 증명 파일을 업로드하고 API 기반으로 자동 검증 후, 본 플랫폼과 연동한다.  
+  - 자격 증명 파일 업로드  
+  - 클라우드 API 호출을 통한 자격 증명 검증
+  - 검증 성공 시 해당 플랫폼과 연동 
+- **효과**: 여러 클라우드 플랫폼을 **단일 인터페이스**에서 관리 가능하며, 멀티 클라우드 서비스를 활용할 수 있다.
+  
+#### 2) 요구사항 맞춤형 집계자 배포 최적화
+<p align="center">
+  <img width="50%" alt="집계자 배치 최적화 아키텍처" src="https://github.com/user-attachments/assets/73b6a64b-8bd7-443e-934a-787dec8c1657" />
 </p>
 
 - **방법**: 사용자 요구사항(최대 허용 비용, 지연시간, 비용-지연시간 가중치 비율)을 반영하여 집계자 최적 배포 수행  
@@ -177,12 +191,16 @@
 <img width="50%" alt="배치 최적화 결과" src="https://github.com/user-attachments/assets/820e949e-e0ad-44e8-8a21-0214996f3254" />
 
 #### 3) 동적 태스크 오케스트레이션
+<p align="center">
+  <img width="70%" alt="동적 태스크 오케스트레이션 플로우" src="https://github.com/user-attachments/assets/7efddea0-3555-47b2-af32-d507d26c95a6" />
+</p>
 
-<img width="409" height="215" alt="image" src="https://github.com/user-attachments/assets/3bb2d189-c447-446f-a6b8-cec63be2fe09" />
-
-- 참여자의 가상머신 자원 상태를 실시간 모니터링하여 **적절한 가상머신에 연합학습 할당**
-  - 최소 사양 기반 필터링: 컴퓨팅 리소스, 상태
-  - 원형 큐 기반 부하 분산
+- **방법**: 참여자 VM의 상태를 실시간 모니터링하고 조건에 따라 작업을 동적으로 분배  
+  - **최소 사양 기반 필터링**: CPU, GPU, 메모리 등 기본 자원 요건 충족 여부 확인  
+  - **원형 큐 기반 작업 할당**: 조건 충족 노드 중에서 균등하게 작업 분배
+- **효과**: VM 장애나 자원 불균형 상황에서도 안정적인 연합학습을 수행할 수 있도록 지원
+- **결과 예시** 
+<img width="50%" alt="동적 태스크 오케스트레이션 결과" src="https://github.com/user-attachments/assets/3bb2d189-c447-446f-a6b8-cec63be2fe09" />
 
 #### 4) 멀티 클라우드 통합
 
